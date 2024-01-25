@@ -49,7 +49,6 @@ cd 2sl-jobconfig-awsdpeloy/
 ssm_param_name="/job/root-admin/organizations/organizationalunit/dev"
 source ./2sl-jobexecframework/resources/ssm/parameters/parameter_functions.sh
 set_ssm_parameter_job_config $ssm_param_name
-exit
 
 #run the job
 cd ../2sl-jobexecframework/
