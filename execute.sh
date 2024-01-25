@@ -8,9 +8,14 @@
 ##############################################################
 profile="$1"
 
-echo "Executing 2sl-job-awsenvinit/execute.sh for env: $env"
+source "shared/parse_config.sh"
 
-echo "This job is not yet complete"
+echo "Executing 2sl-job-awsenvinit/execute.sh"
+echo "env: $env"
+echo "profile: $profile"
+
+deploy "job/awsenvinit/root-admin/organizations-organizationalunit-dev"
+
 
 #################################################################################
 # Copyright Notice
