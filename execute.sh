@@ -14,7 +14,7 @@ echo "Executing 2sl-job-awsenvinit/execute.sh"
 echo "env: $env"
 echo "profile: $profile"
 
-deploy "job/awsenvinit/root-admin/organizations-organizationalunit-dev"
+deploy "/job/awsenvinit/root-admin/organizations-organizationalunit-dev"
 
 
 #################################################################################
