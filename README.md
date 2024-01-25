@@ -4,6 +4,7 @@ Initial code to run in a new AWS account leveraging the 2sl-jobexecframework
 # Prerequisites
 
 Run the job in the 2sl-job-awsorginit git repository
+Note that the job configuration is in the 2sl-jobconfig-awsdeploy respository
 
 [2sl-job-awsorginit](https://github.com/tradichel/2sl-job-awsorginit/tree/main)
 

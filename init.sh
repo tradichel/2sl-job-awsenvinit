@@ -10,15 +10,17 @@
 # 2nd Sight Lab Job Execution Environment
 ##############################################################
 
-echo "Enter the name of the environment you want to deploy:"
-read env
-
+source 
 if [ -d 2sl-jobexecframework ]; then
  rm -rf 2sl-jobexecframework
 fi
 
 if [ -d 2sl-job-awsenvinit ]; then
 	rm -rf 2sl-job-awsenvinit
+fi
+
+if [ -d 2sl-jobconfig-awsdeploy ]; then
+  rm -rf 2sl-jobconfig-awsdeploy
 fi
 
 buildxversion=$(docker buildx version | cut -d " " -f2 | cut -d "+" -f1)
@@ -40,8 +42,17 @@ fi
 #clone the repositories to CloudShell
 git clone https://github.com/tradichel/2sl-jobexecframework.git
 git clone https://github.com/tradichel/2sl-job-awsenvinit.git
+git clone https://github.com/tradichel/2sl-jobconfig-awsdeploy.git
 
-cd 2sl-jobexecframework/
+#deploy the job config ssm parameter
+cd 2sl-jobconfig-awsdpeloy/
+ssm_param_name="/job/root-admin/organizations/organizationalunit/dev"
+source ./2sl-jobexecframework/resources/ssm/parameters/parameter_functions.sh
+set_ssm_parameter_job_config $ssm_param_name
+exit
+
+#run the job
+cd ../2sl-jobexecframework/
 ./scripts/build.sh awsenvinit
 
 sudo yum install jq -y
@@ -61,7 +72,8 @@ parameters="\
   accesskey=$accesskeyid,\
   secretaccesskey=$secretaccesskey,\
   sessiontoken=$sessiontoken,\
-  region=$AWS_REGION"
+  region=$AWS_REGION,\
+	job_ssm_parameter=$ssm_parameter_name"
 
 #remove any spaces so the parameter list is treated as a single argument passed to the container
 parameters=$(echo $parameters | sed 's/ //g')
