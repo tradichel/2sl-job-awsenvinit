@@ -11,8 +11,6 @@ profile="$1"
 source "shared/parse_config.sh"
 
 echo "Executing 2sl-job-awsenvinit/execute.sh"
-echo "env: $env"
-echo "profile: $profile"
 
 deploy "/job/awsenvinit/root-admin/organizations-organizationalunit-dev"
 

@@ -46,7 +46,7 @@ git clone https://github.com/tradichel/2sl-jobconfig-awsdeploy.git
 
 #deploy the job config ssm parameter
 cd 2sl-jobconfig-awsdpeloy/
-ssm_param_name="/job/root-admin/organizations/organizationalunit/dev"
+ssm_param_name="/job/awsenvinit/root-admin/stack-environment-dev"
 source ./2sl-jobexecframework/resources/ssm/parameters/parameter_functions.sh
 set_ssm_parameter_job_config $ssm_param_name
 
