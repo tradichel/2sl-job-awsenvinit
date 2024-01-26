@@ -10,10 +10,11 @@ profile="$1"
 
 source "shared/parse_config.sh"
 
-echo "Executing 2sl-job-awsenvinit/execute.sh"
+resource="/job/awsenvinit/root-admin/stack-environment-dev"
 
-deploy "/job/awsenvinit/root-admin/organizations-organizationalunit-dev"
+echo "Executing $resource"
 
+deploy $resource
 
 #################################################################################
 # Copyright Notice
