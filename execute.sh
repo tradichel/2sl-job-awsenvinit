@@ -8,11 +8,11 @@
 ##############################################################
 #print out global parameters:
 echo "PROFILE: $PROFILE"
-echo "JOB PARAM: $SSM_JOB_CONFIGURATION_PARAMETER"
+echo "JOB PARAM: $JOB_CONFIG_SSM_PARAMETER"
 
 source "shared/parse_config.sh"
 
-deploy $SSM_JOB_CONFIGURATION_PARAMETER
+deploy $JOB_CONFIG_SSM_PARAMETER
 
 #################################################################################
 # Copyright Notice
