@@ -12,8 +12,7 @@ source "shared/parse_config.sh"
 
 resource="/job/awsenvinit/root-admin/stack-environment-dev"
 
-echo "Deploying resource in 2sl-job-awsenvinit"
-echo "deploy $resource"
+echo "deploy $resource in 2sl-job-awsenvinit/execute.sh with profile $PROFILE"
 
 deploy $resource
 
