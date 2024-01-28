@@ -6,15 +6,13 @@
 # associated job. See the git repo README and related
 # blog posts
 ##############################################################
-PROFILE="$1"
+#print out global parameters:
+echo "PROFILE: $PROFILE"
+echo "JOB PARAM: $SSM_JOB_CONFIGURATION_PARAMETER"
 
 source "shared/parse_config.sh"
 
-resource="/job/awsenvinit/root-admin/stack-environment-dev"
-
-echo "deploy $resource in 2sl-job-awsenvinit/execute.sh with profile $PROFILE"
-
-deploy $resource
+deploy $SSM_JOB_CONFIGURATION_PARAMETER
 
 #################################################################################
 # Copyright Notice
