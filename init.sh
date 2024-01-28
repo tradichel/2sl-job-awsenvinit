@@ -56,7 +56,7 @@ cd ../2sl-jobexecframework/
 
 sudo yum install jq -y
 creds=$(curl -H "Authorization: $AWS_CONTAINER_AUTHORIZATION_TOKEN" $AWS_CONTAINER_CREDENTIALS_FULL_URI 2>/dev/null)
-profile='root'
+PROFILE='root'
 region=$AWS_REGION
 
 accesskeyid="$(echo $creds | jq -r ".AccessKeyId")"

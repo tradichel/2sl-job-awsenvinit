@@ -6,13 +6,14 @@
 # associated job. See the git repo README and related
 # blog posts
 ##############################################################
-profile="$1"
+PROFILE="$1"
 
 source "shared/parse_config.sh"
 
 resource="/job/awsenvinit/root-admin/stack-environment-dev"
 
-echo "Executing $resource"
+echo "Deploying resource in 2sl-job-awsenvinit"
+echo "deploy $resource"
 
 deploy $resource
 
